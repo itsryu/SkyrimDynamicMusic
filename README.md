@@ -1,61 +1,78 @@
-# ğŸµ Skyrim Dynamic Music (Minecraft Bedrock Add-on)
+<h1> Skyrim Dynamic Music (Minecraft Bedrock Add-on)</h1>
 
 <p align="center">
-  <a href="#-english">English</a> â€¢ 
-  <a href="#-portuguÃªs">PortuguÃªs</a>
+  <a href="#english"><img src="https://shields.io" alt="English"/></a>
+  <a href="#portugues"><img src="https://shields.io" alt="Português"/></a>
 </p>
 
----
+<hr />
 
-## ğŸ‡ºğŸ‡¸ English
+<div id="english">
+  <h2>English</h2>
+  <p>The legendary, award-winning soundtrack of <strong>The Elder Scrolls V: Skyrim</strong> fully integrated into the <strong>Minecraft Bedrock Edition</strong> universe. This Add-on replaces and expands the game's music system with epic, atmospheric compositions that change dynamically based on your actions, biomes, and the environment.</p>
 
-The legendary, award-winning soundtrack of **The Elder Scrolls V: Skyrim** fully integrated into the **Minecraft Bedrock Edition** universe. This Add-on replaces and expands the game's music system with epic, atmospheric compositions that change dynamically based on your actions, biomes, and the environment.
+  <h3> Key Features</h3>
+  <ul>
+    <li><strong>Full Skyrim OST Integration:</strong> Replaces default Minecraft background tracks with the iconic compositions of Skyrim.</li>
+    <li><strong>100% Achievement Friendly:</strong> Pure resource design that preserves your survival progression. You can unlock Xbox/PlayStation achievements with this pack active.</li>
+    <li><strong>Fully Compatible:</strong> Seamlessly stacks with any other Add-ons, behavior packs, or resource packs in your world.</li>
+    <li><strong>Immersive Experience:</strong> Carefully tailored to match your specific situational states without interrupting native blocks, mobs, or environmental sound effects.</li>
+    <li><strong>Bedrock Optimization:</strong> Lightweight, high-quality audio files built for smooth cross-platform performance (Tested from 1.16.x up to 1.21+).</li>
+  </ul>
 
-### âœ¨ Key Features
-* **Full Skyrim OST Integration:** Replaces default Minecraft background tracks with the iconic compositions of Skyrim.
-* **Immersive Experience:** Carefully tailored to match your specific situational states without interrupting native blocks, mobs, or environmental sound effects.
-* **Bedrock Optimization:** Lightweight, high-quality audio files built for seamless cross-platform performance (Tested from 1.16.x up to 1.21+).
-* **Pure Resource Enhancement:** Clean design that preserves your survival experience, worlds, and achievements.
+  <h3> Music Contexts & Categories</h3>
+  <ul>
+    <li> <strong>Ambience:</strong> Calming tracks like <em>Far Horizons, Secunda, and Aurora</em> playing during your sandbox hours.</li>
+    <li> <strong>Exploration:</strong> Immersive music adapting to outdoor environments, including the legendary <em>Skyrim Main Theme</em>.</li>
+    <li> <strong>Towns & Villages:</strong> Peaceful melodies like <em>The Streets of Whiterun</em> playing inside settled communities, villages, and taverns.</li>
+    <li> <strong>Combat & Bosses:</strong> High-energy combat scores like <em>Dragonborn, Ancient Power, and Watch the Skies</em> triggering automatically during fights.</li>
+    <li> <strong>Environmental States:</strong> Specialized tracks adapting to day/night cycles, deep caves, storms, snow, and rainy weather.</li>
+  </ul>
+</div>
 
-### ğŸ¼ Music Contexts & Categories
-* ğŸŸ¢ **Ambience:** Calming tracks like *Far Horizons, Secunda, and Aurora* playing during your sandbox hours.
-* ğŸ”µ **Exploration:** Immersive music adapting to outdoor environments, including the legendary *Skyrim Main Theme*.
-* ğŸŸ£ **Towns & Villages:** Peaceful melodies like *The Streets of Whiterun* playing inside settled communities, villages, and taverns.
-* ğŸ”´ **Combat & Bosses:** High-energy combat scores like *Dragonborn, Ancient Power, and Watch the Skies* triggering automatically during fights.
-* âšª **Environmental States:** Specialized tracks adapting to day/night cycles, deep caves, storms, snow, and rainy weather.
+<hr />
 
----
+<div id="portugues">
+  <h2>Português</h2>
+  <p>A trilha sonora lendária de <strong>The Elder Scrolls V: Skyrim</strong> integrada de forma totalmente dinâmica ao universo de <strong>Minecraft Bedrock Edition</strong>. Este Add-on substitui e expande o sistema de música original por composições épicas e imersivas que mudam organicamente conforme as suas ações, biomas e o ambiente ao seu redor.</p>
 
-## ğŸ‡§ğŸ‡· PortuguÃªs
+  <h3> Principais Recursos</h3>
+  <ul>
+    <li><strong>Integração Total da OST de Skyrim:</strong> Substitui as músicas padrão de fundo do Minecraft pelas composições icônicas de Skyrim.</li>
+    <li><strong>100% Achievement Friendly:</strong> Preserva totalmente a sua progressão de sobrevivência. Você continua desbloqueando conquistas com o pacote ativo no mundo.</li>
+    <li><strong>Totalmente Compatível:</strong> Funciona perfeitamente em conjunto com qualquer outro Add-on, pacote de comportamento ou textura instalado.</li>
+    <li><strong>Experiência Imersiva:</strong> Cuidadosamente programado para se adaptar ao seu contexto atual, sem interromper os sons nativos de blocos, criaturas ou efeitos de ambiente do jogo.</li>
+    <li><strong>Otimizado para Bedrock:</strong> Arquivos de áudio leves e de alta fidelidade projetados para uma execução fluida em múltiplas plataformas (Testado da 1.16.x até a 1.21+).</li>
+  </ul>
 
-A trilha sonora lendÃ¡ria de **The Elder Scrolls V: Skyrim** integrada de forma totalmente dinÃ¢mica ao universo de **Minecraft Bedrock Edition**. Este Add-on substitui e expande o sistema de mÃºsica original por composiÃ§Ãµes Ã©picas e imersivas que mudam organicamente conforme as suas aÃ§Ãµes, biomas e o ambiente ao seu redor.
+  <h3> Contextos Musicais e Categorias</h3>
+  <ul>
+    <li> <strong>Ambiente:</strong> Faixas relaxantes como <em>Far Horizons, Secunda e Aurora</em> tocando durante seus momentos de construção.</li>
+    <li> <strong>Exploração:</strong> Músicas imersivas adaptadas a biomas abertos, incluindo o lendário tema principal <em>Skyrim Main Theme</em>.</li>
+    <li> <strong>Cidades e Vilas:</strong> Melodias acolhedoras como <em>The Streets of Whiterun</em> ativadas ao entrar em vilarejos, locais habitados e tavernas.</li>
+    <li> <strong>Combates:</strong> Trilhas intensas de batalha como <em>Dragonborn, Ancient Power e Watch the Skies</em> que iniciam automaticamente ao entrar em combate.</li>
+    <li> <strong>Estados Variados:</strong> Trilhas específicas para os ciclos de dia/noite, exploração de cavernas profundas, tempestades, neve ou chuva.</li>
+  </ul>
+</div>
 
-### âœ¨ Principais Recursos
-* **IntegraÃ§Ã£o Total da OST de Skyrim:** Substitui as mÃºsicas padrÃ£o de fundo do Minecraft pelas composiÃ§Ãµes icÃ´nicas de Skyrim.
-* **ExperiÃªncia Imersiva:** Cuidadosamente programado para se adaptar ao seu contexto atual, sem interromper os sons nativos de blocos, criaturas ou efeitos de ambiente do jogo.
-* **Otimizado para Bedrock:** Arquivos de Ã¡udio leves e de alta fidelidade projetados para uma execuÃ§Ã£o fluida em mÃºltiplas plataformas (Testado da 1.16.x atÃ© a 1.21+).
-* **Modpack Seguro:** Focado puramente na substituiÃ§Ã£o de recursos visuais e sonoros, preservando conquistas e mundos existentes.
+<hr />
 
-### ğŸ¼ Contextos Musicais e Categorias
-* ğŸŸ¢ **Ambiente:** Faixas relaxantes como *Far Horizons, Secunda e Aurora* tocando durante seus momentos de construÃ§Ã£o.
-* ğŸ”µ **ExploraÃ§Ã£o:** MÃºsicas imersivas adaptadas a biomas abertos, incluindo o lendÃ¡rio tema principal *Skyrim Main Theme*.
-* ğŸŸ£ **Cidades e Vilas:** Melodias acolhedoras como *The Streets of Whiterun* ativadas ao entrar em vilarejos, locais habitados e tavernas.
-* ğŸ”´ **Combates:** Trilhas intensas de batalha como *Dragonborn, Ancient Power e Watch the Skies* que iniciam automaticamente ao entrar em combate.
-* âšª **Estados Variados:** Trilhas especÃ­ficas para os ciclos de dia/noite, exploraÃ§Ã£o de cavernas profundas, tempestades, neve ou chuva.
+<h2> How to Install / Como Instalar</h2>
+<ol>
+  <li>Download the unified <code>.mcaddon</code> pack file. / <em>Baixe o arquivo unificado <code>.mcaddon</code> do pacote.</em></li>
+  <li>Open the file to let your device automatically import it into <strong>Minecraft</strong>. / <em>Abra o arquivo para que o seu dispositivo o importe automaticamente no <strong>Minecraft</strong>.</em></li>
+  <li>Go to your <strong>Global Resources (or World Resource Packs)</strong> settings. / <em>Acesse as configurações de <strong>Recursos Globais (ou Pacotes de Recursos do Mundo)</strong>.</em></li>
+  <li>Activate the Skyrim pack and enjoy. / <em>Ative o pacote do Skyrim e aproveite o jogo.</em></li>
+</ol>
 
----
+<blockquote>
+   <strong>Tip / Dica:</strong> Use headphones for the ultimate tactical and cinematic audio immersion! / <em>Use fones de ouvido para alcançar a máxima imersão sonora e cinematográfica!</em>
+</blockquote>
 
-## ğŸ› ï¸ How to Install / Como Instalar
+<hr />
 
-1. Download the unified `.mcaddon` pack file. / *Baixe o arquivo unificado `.mcaddon` do pacote.*
-2. Open the file to let your device automatically import it into **Minecraft**. / *Abra o arquivo para que o seu dispositivo o importe automaticamente no **Minecraft**.*
-3. Go to your **Global Resources (or World Resource Packs)** settings. / *Acesse as configuraÃ§Ãµes de **Recursos Globais (ou Pacotes de Recursos do Mundo)**.*
-4. Activate the Skyrim pack and enjoy. / *Ative o pacote do Skyrim e aproveite o jogo.*
+<h2> License / Licença</h2>
+<p>MIT License - See the <a href="LICENSE">LICENSE</a> file for details. / <em>Consulte o arquivo <a href="LICENSE">LICENSE</a> para obter mais detalhes.</em></p>
 
-> ğŸ’¡ **Tip:** Use headphones for the ultimate tactical and cinematic audio immersion! / *Use fones de ouvido para alcanÃ§ar a mÃ¡xima imersÃ£o sonora e cinematogrÃ¡fica!*
-
----
-
-## ğŸ“„ License / LicenÃ§a
-
-MIT License - See the [LICENSE](LICENSE) file for details. / *Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.*
+<hr />
+<p align="center"><em>Skyrim vibes. Minecraft forever.</em></p>
