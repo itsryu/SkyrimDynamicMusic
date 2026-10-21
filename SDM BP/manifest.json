@@ -4,7 +4,7 @@
     "name": "Skyrim Dynamic Music - Behavior",
     "description": "Context-aware dynamic soundtrack for Minecraft Bedrock.",
     "uuid": "a9b7c2d1-4e63-4f80-9a25-7b6d8c1e3f40",
-    "version":,
+    "version": [1, 0, 3],
     "min_engine_version": [1, 21, 0]
   },
   "modules": [
@@ -13,14 +13,14 @@
       "type": "script",
       "language": "javascript",
       "uuid": "b8c6d3e2-5f74-4081-ab36-8c7e9d2f4051",
-      "version":,
+      "version": [1, 0, 3],
       "entry": "scripts/main.js"
     }
   ],
   "dependencies": [
     {
       "uuid": "c7d5e4f3-6085-4192-bc47-9d8e0a3f5162",
-      "version": [1, 0, 1]
+      "version": [1, 0, 3]
     },
     {
       "module_name": "@minecraft/server",
