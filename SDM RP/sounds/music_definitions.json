@@ -1,0 +1,148 @@
+
+{
+  "badlands": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "badlands_plateau": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "bamboo_jungle": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "beach": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "birch_forest": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "cherry_grove": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "deep_ocean": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "desert": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "flower_forest": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "forest": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "frozen_ocean": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "grove": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "ice_plains": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "jungle": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "lukewarm_ocean": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "mega_taiga": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "mushroom_island": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "ocean": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "plains": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "river": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "roofed_forest": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "savanna": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "snowy_slopes": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "swampland": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "taiga": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "warm_ocean": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "windswept_forest": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "windswept_hills": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "water": {
+    "event_name": "skyrim:music.water",
+    "min_delay": 10,
+    "max_delay": 20
+  }
+}

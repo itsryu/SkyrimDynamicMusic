@@ -1,0 +1,18 @@
+# temps
+*.log
+.DS_Store
+.content/
+
+# mine
+*.log
+.content/
+.mcattributes
+
+# editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# audios
+# *.ogg

@@ -1,0 +1,213 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "skyrim:track.a_chance_meeting": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/a_chance_meeting"]
+    },
+    "skyrim:track.a_winter_s_tale": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/a_winter's_tale"]
+    },
+    "skyrim:track.ancient_stones": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/ancient_stones"]
+    },
+    "skyrim:track.around_the_fire": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/around_the_fire"]
+    },
+    "skyrim:track.aurora": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/aurora"]
+    },
+    "skyrim:track.awake": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/awake"]
+    },
+    "skyrim:track.before_the_storm": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/before_the_storm"]
+    },
+    "skyrim:track.beneath_the_ice": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/beneath_the_ice"]
+    },
+    "skyrim:track.blood_and_steel": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/blood_and_steel"]
+    },
+    "skyrim:track.caught_off_guard": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/caught_off_guard"]
+    },
+    "skyrim:track.dawn": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/dawn"]
+    },
+    "skyrim:track.death_in_the_darkness": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/death_in_the_darkness"]
+    },
+    "skyrim:track.death_or_sovngarde": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/death_or_sovngarde"]
+    },
+    "skyrim:track.distant_horizons": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/distant_horizons"]
+    },
+    "skyrim:track.dragonborn": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/dragonborn"]
+    },
+    "skyrim:track.dragonsreach": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/dragonsreach"]
+    },
+    "skyrim:track.far_horizons": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/far_horizons"]
+    },
+    "skyrim:track.from_past_to_present": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/from_past_to_present"]
+    },
+    "skyrim:track.frostfall": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/frostfall"]
+    },
+    "skyrim:track.imperial_throne": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/imperial_throne"]
+    },
+    "skyrim:track.into_darkness": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/into_darkness"]
+    },
+    "skyrim:track.journey_s_end": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/journey's_end"]
+    },
+    "skyrim:track.kyne_s_peace": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/kyne's_peace"]
+    },
+    "skyrim:track.masser": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/masser"]
+    },
+    "skyrim:track.night_without_stars": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/night_without_stars"]
+    },
+    "skyrim:track.one_they_fear": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/one_they_fear"]
+    },
+    "skyrim:track.out_of_the_cold": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/out_of_the_cold"]
+    },
+    "skyrim:track.secunda": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/secunda"]
+    },
+    "skyrim:track.seven_thousand_steps": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/seven_thousand_steps"]
+    },
+    "skyrim:track.shadows_and_echoes": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/shadows_and_echoes"]
+    },
+    "skyrim:track.shattered_shields": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/shattered_shields"]
+    },
+    "skyrim:track.silence_unbroken": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/silence_unbroken"]
+    },
+    "skyrim:track.silent_footsteps": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/silent_footsteps"]
+    },
+    "skyrim:track.sky_above_voice_within": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/sky_above,_voice_within"]
+    },
+    "skyrim:track.skyrim_atmospheres": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/skyrim_atmospheres"]
+    },
+    "skyrim:track.solitude": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/solitude"]
+    },
+    "skyrim:track.standing_stones": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/standing_stones"]
+    },
+    "skyrim:track.steel_on_steel": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/steel_on_steel"]
+    },
+    "skyrim:track.the_bannered_mare": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/the_bannered_mare"]
+    },
+    "skyrim:track.the_city_gates": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/the_city_gates"]
+    },
+    "skyrim:track.the_gathering_storm": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/the_gathering_storm"]
+    },
+    "skyrim:track.the_jerall_mountains": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/the_jerall_mountains"]
+    },
+    "skyrim:track.the_streets_of_whiterun": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/the_streets_of_whiterun"]
+    },
+    "skyrim:track.the_white_river": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/the_white_river"]
+    },
+    "skyrim:track.tooth_and_claw": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/tooth_and_claw"]
+    },
+    "skyrim:track.towers_and_shadows": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/towers_and_shadows"]
+    },
+    "skyrim:track.tundra": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/tundra"]
+    },
+    "skyrim:track.unbound": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/unbound"]
+    },
+    "skyrim:track.unbroken_road": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/unbroken_road"]
+    },
+    "skyrim:track.under_an_ancient_sun": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/under_an_ancient_sun"]
+    },
+    "skyrim:track.watch_the_skies": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/watch_the_skies"]
+    },
+    "skyrim:track.wind_guide_you": {
+      "category": "music",
+      "sounds": ["sounds/music/skyrim/wind_guide_you"]
+    }
+  }
+}
