@@ -1,8 +1,13 @@
 <h1>🎵 Skyrim Dynamic Music (Minecraft Bedrock Add-on)</h1>
 
 <p align="center">
-  <a href="#english"><img src="https://shields.io" alt="English"/></a>
-  <a href="#portugues"><img src="https://shields.io" alt="Português"/></a>
+  <a href="#english">
+    <img src="https://shields.io" alt="English" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="#portugues">
+    <img src="https://shields.io" alt="Português" />
+  </a>
 </p>
 
 <hr />
