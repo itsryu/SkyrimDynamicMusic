@@ -1,3 +1,6 @@
+/**
+ * @fileoverview Main entry point. Defines runtime logic loops and event subscriptions.
+ */
 import { world, system, ItemStack } from "@minecraft/server";
 import { CONFIG, ENTITY_DICTIONARY, PLAYLISTS } from "./config.js";
 import { stateManager } from "./state.js";
@@ -5,15 +8,16 @@ import { UIManager } from "./ui.js";
 import { AudioOrchestrator } from "./audio.js";
 import { PopupManager } from "./popup.js";
 
+// Initialize Environment State
 system.runTimeout(() => {
   PopupManager.cleanupOrphans();
 }, 20);
 
-world.beforeEvents.chatSend.subscribe((ev) => {
+// Use afterEvents as beforeEvents.chatSend is non-standard in modern APIs
+world.afterEvents.chatSend.subscribe((ev) => {
   const msg = ev.message.toLowerCase().trim();
 
   if (msg === "!np" || msg === "!musica" || msg === "!music") {
-    ev.cancel = true;
     const player = ev.sender;
 
     system.run(() => {
@@ -44,7 +48,7 @@ world.beforeEvents.chatSend.subscribe((ev) => {
 world.afterEvents.itemUse.subscribe((ev) => {
   if (ev.itemStack.typeId === "skyrim:config_book") {
     const player = ev.source;
-    system.runTimeout(() => UIManager.showConfigMenu(player), 5);
+    system.run(() => UIManager.showConfigMenu(player));
   }
 });
 
@@ -61,9 +65,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
             "§e[Skyrim Music]§f Você recebeu o Livro de Configurações de Áudio! Se perder, crafte com um Livro + Bloco Musical."
           );
         }
-      } catch (e) {
-        console.warn("[SkyrimMusic] Falha ao dar o livro: " + e);
-      }
+      } catch (e) {}
     }
   }
 });
@@ -97,24 +99,36 @@ world.afterEvents.playerLeave.subscribe((ev) => {
   PopupManager.remove(ev.playerId);
 });
 
+// UI Sync implementation
 system.runInterval(() => {
-  PopupManager.tick();
+  const currentTick = system.currentTick;
+  const players = world.getPlayers();
+
+  for (const [playerId, data] of PopupManager.popups.entries()) {
+    const player = players.find((p) => p.id === playerId);
+    if (currentTick >= data.expireTick || !player || !data.entity.isValid()) {
+      PopupManager.remove(playerId);
+      continue;
+    }
+    PopupManager.updatePosition(player, data.entity);
+  }
 }, 1);
 
-system.runInterval(() => {
-  const onlinePlayers = Array.from(world.getPlayers());
-  const onlinePlayerIds = new Set(onlinePlayers.map((p) => p.id));
-
-  for (const player of onlinePlayers) {
+// Cooperative Multitasking: Generator function limits execution complexity per tick
+function* processAudioQueue() {
+  const players = Array.from(world.getPlayers());
+  for (const player of players) {
     try {
       AudioOrchestrator.tickPlayer(player);
-    } catch (error) {
-      console.warn(
-        "[SkyrimMusic] Erro ao processar áudio para " + player.name + ": ",
-        error
-      );
-    }
+    } catch (e) {}
+    yield; // Relinquish thread execution to subsequent engine ticks
   }
+}
 
-  stateManager.cleanup(onlinePlayerIds);
+// Spawns the Job at predefined intervals
+system.runInterval(() => {
+  const players = Array.from(world.getPlayers());
+  stateManager.cleanup(new Set(players.map((p) => p.id)));
+
+  system.runJob(processAudioQueue());
 }, CONFIG.POLL_TICKS);

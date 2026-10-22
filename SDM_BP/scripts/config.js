@@ -1,5 +1,15 @@
+/**
+ * @fileoverview Configuration constants and track dictionaries.
+ */
+
+/**
+ * Global configuration parameters.
+ * @constant
+ * @type {Readonly<Object>}
+ */
 export const CONFIG = Object.freeze({
   POLL_TICKS: 20,
+  CACHE_TTL_TICKS: 40,
   COMBAT_GRACE_TICKS: 300,
   BOSS_DETECTION_RADIUS: 40,
   VILLAGE_DETECTION_RADIUS: 32,
@@ -11,6 +21,11 @@ export const CONFIG = Object.freeze({
   EXPLORATION_GAP_MAX_TICKS: 900,
 });
 
+/**
+ * Entity classifications for runtime evaluation.
+ * @constant
+ * @type {Readonly<Object>}
+ */
 export const ENTITY_DICTIONARY = Object.freeze({
   BOSSES: new Set([
     "minecraft:ender_dragon",
@@ -49,11 +64,18 @@ export const ENTITY_DICTIONARY = Object.freeze({
   ]),
 });
 
+/**
+ * Represents an audio track entity.
+ */
 export class Track {
+  /**
+   * @param {string} name - Base name of the track.
+   * @param {number} durationSeconds - Track length in seconds.
+   * @param {string|null} [displayName=null] - Optional UI name.
+   */
   constructor(name, durationSeconds, displayName = null) {
     this.id = `skyrim:track.${name}`;
     this.durationTicks = durationSeconds * 20;
-
     this.displayName =
       displayName ||
       name
@@ -63,6 +85,11 @@ export class Track {
   }
 }
 
+/**
+ * Defined playlists categorized by environmental state.
+ * @constant
+ * @type {Readonly<Object<string, Track[]>>}
+ */
 export const PLAYLISTS = Object.freeze({
   exploration: [
     new Track("far_horizons", 332, "Far Horizons"),

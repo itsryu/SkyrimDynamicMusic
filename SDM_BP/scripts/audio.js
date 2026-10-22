@@ -1,3 +1,6 @@
+/**
+ * @fileoverview Audio orchestration and logic transitions.
+ */
 import { system } from "@minecraft/server";
 import { CONFIG, PLAYLISTS } from "./config.js";
 import { stateManager } from "./state.js";
@@ -5,20 +8,31 @@ import { EnvironmentSensor } from "./environment.js";
 import { UIManager } from "./ui.js";
 
 export class AudioOrchestrator {
-  static getRandomInt(min, max) {
+  /**
+   * Cryptographically insecure pseudo-random generator integer scaling.
+   * @private
+   */
+  static _getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  static chooseTrack(playlist, previousTrackId) {
+  /**
+   * @private
+   */
+  static _chooseTrack(playlist, previousTrackId) {
     if (!playlist || playlist.length === 0) return null;
     const available =
       playlist.length > 1
         ? playlist.filter((t) => t.id !== previousTrackId)
         : playlist;
-    return available[this.getRandomInt(0, available.length - 1)];
+    return available[this._getRandomInt(0, available.length - 1)];
   }
 
-  static playAtmosphereGap(player, context, settings) {
+  /**
+   * Handles inter-track atmospheric pauses.
+   * @private
+   */
+  static _playAtmosphereGap(player, context, settings) {
     try {
       if (settings.atmosEnabled && settings.atmosVolume > 0) {
         player.playMusic(CONFIG.ATMOSPHERE_TRACK_ID, {
@@ -28,29 +42,25 @@ export class AudioOrchestrator {
         });
       }
       context.playbackState = "gap";
-      const gapDuration = this.getRandomInt(
+      const gapDuration = this._getRandomInt(
         CONFIG.EXPLORATION_GAP_MIN_TICKS,
         CONFIG.EXPLORATION_GAP_MAX_TICKS
       );
       context.transitionTick = system.currentTick + gapDuration;
     } catch (error) {
-      console.warn(
-        `[SkyrimMusic] Falha ao iniciar atmosfera para ${player.name}:`,
-        error
-      );
+      // Runtime engine constraint safeguard
     }
   }
 
-  static playContextTrack(player, context, mode, settings) {
+  /**
+   * Invokes track payload based on active behavioral modes.
+   * @private
+   */
+  static _playContextTrack(player, context, mode, settings) {
     const playlist = PLAYLISTS[mode];
-    if (!playlist) {
-      console.warn(
-        `[SkyrimMusic] Playlist não encontrada para o modo: ${mode}`
-      );
-      return;
-    }
+    if (!playlist) return;
 
-    const track = this.chooseTrack(playlist, context.previousTrack);
+    const track = this._chooseTrack(playlist, context.previousTrack);
     if (!track) return;
 
     const isCombatLoop = mode === "combat" || mode === "boss";
@@ -78,13 +88,14 @@ export class AudioOrchestrator {
         ? Infinity
         : system.currentTick + track.durationTicks;
     } catch (error) {
-      console.warn(
-        `[SkyrimMusic] Erro crítico ao tocar música '${track.id}' para ${player.name}:`,
-        error
-      );
+      // Handled engine exception
     }
   }
 
+  /**
+   * Core execution tick evaluated per player.
+   * @param {import("@minecraft/server").Player} player
+   */
   static tickPlayer(player) {
     if (!player.isValid()) return;
 
@@ -97,15 +108,15 @@ export class AudioOrchestrator {
     );
 
     if (context.mode !== currentMode || context.transitionTick === 0) {
-      this.playContextTrack(player, context, currentMode, settings);
+      this._playContextTrack(player, context, currentMode, settings);
       return;
     }
 
     if (system.currentTick >= context.transitionTick) {
       if (context.playbackState === "track") {
-        this.playAtmosphereGap(player, context, settings);
+        this._playAtmosphereGap(player, context, settings);
       } else if (context.playbackState === "gap") {
-        this.playContextTrack(player, context, currentMode, settings);
+        this._playContextTrack(player, context, currentMode, settings);
       }
     }
   }

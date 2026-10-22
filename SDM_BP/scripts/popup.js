@@ -1,32 +1,43 @@
+/**
+ * @fileoverview 3D entity billboard manager.
+ */
 import { system, world } from "@minecraft/server";
 
 export class PopupManager {
   static popups = new Map();
-  static POPUP_DURATION_TICKS = 100; // 5 sec
+  static POPUP_DURATION_TICKS = 100;
   static DISTANCE_FROM_CAMERA = 2.0;
 
+  /**
+   * Sweeps dimensions enforcing memory de-allocation for orphaned entities.
+   */
   static cleanupOrphans() {
-    for (const dimension of ["overworld", "nether", "the_end"]) {
+    const dimensions = ["overworld", "nether", "the_end"];
+    for (const dimId of dimensions) {
       try {
-        const dim = world.getDimension(dimension);
+        const dim = world.getDimension(dimId);
         const orphans = dim.getEntities({ tags: ["sdm_popup"] });
         for (const orphan of orphans) {
           orphan.remove();
         }
-      } catch (e) {}
+      } catch (e) {
+        // Safe fail if dimension is unloaded
+      }
     }
   }
 
+  /**
+   * @param {import("@minecraft/server").Player} player
+   * @param {string} trackName
+   */
   static show(player, trackName) {
     this.remove(player.id);
 
     try {
-      const headLoc = player.getHeadLocation();
       const entity = player.dimension.spawnEntity(
         "skyrim:music_popup",
-        headLoc
+        player.getHeadLocation()
       );
-
       entity.addTag("sdm_popup");
       entity.addTag(`popup_owner_${player.id}`);
       entity.nameTag = `§a♫§f ${trackName}`;
@@ -34,18 +45,17 @@ export class PopupManager {
       this.popups.set(player.id, {
         entity: entity,
         expireTick: system.currentTick + this.POPUP_DURATION_TICKS,
-        playerId: player.id,
       });
 
       this.updatePosition(player, entity);
     } catch (error) {
-      console.warn(
-        `[SkyrimMusic] Falha ao criar popup para ${player.name}:`,
-        error
-      );
+      // Silent fail
     }
   }
 
+  /**
+   * @param {string} playerId
+   */
   static remove(playerId) {
     const data = this.popups.get(playerId);
     if (data) {
@@ -58,6 +68,11 @@ export class PopupManager {
     }
   }
 
+  /**
+   * Synchronizes spatial coordinates via trigonometric vectors.
+   * @param {import("@minecraft/server").Player} player
+   * @param {import("@minecraft/server").Entity} entity
+   */
   static updatePosition(player, entity) {
     if (!player.isValid() || !entity.isValid()) return;
 
@@ -72,30 +87,7 @@ export class PopupManager {
     };
 
     try {
-      entity.teleport(targetLoc, {
-        rotation: { x: rot.x, y: rot.y },
-      });
+      entity.teleport(targetLoc, { rotation: { x: rot.x, y: rot.y } });
     } catch (e) {}
-  }
-
-  static tick() {
-    const currentTick = system.currentTick;
-    const players = Array.from(world.getPlayers());
-    const validPlayerIds = new Set(players.map((p) => p.id));
-
-    for (const [playerId, data] of this.popups.entries()) {
-      const player = players.find((p) => p.id === playerId);
-
-      if (
-        currentTick >= data.expireTick ||
-        !validPlayerIds.has(playerId) ||
-        !data.entity.isValid()
-      ) {
-        this.remove(playerId);
-        continue;
-      }
-
-      this.updatePosition(player, data.entity);
-    }
   }
 }

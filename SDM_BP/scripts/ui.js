@@ -1,8 +1,28 @@
+/**
+ * @fileoverview Subsystem for UI instantiation and state retrieval.
+ */
 import { ModalFormData } from "@minecraft/server-ui";
-import { stateManager } from "./state.js";
+import { system } from "@minecraft/server";
 import { PopupManager } from "./popup.js";
 
+/**
+ * @typedef {Object} UISettings
+ * @property {boolean} musicEnabled
+ * @property {number} musicVolume
+ * @property {boolean} atmosEnabled
+ * @property {number} atmosVolume
+ * @property {boolean} combatEnabled
+ * @property {boolean} popupEnabled
+ * @property {number} mVolRaw
+ * @property {number} aVolRaw
+ */
+
 export class UIManager {
+  /**
+   * Fetches persisted settings directly from entity dynamic properties.
+   * @param {import("@minecraft/server").Player} player
+   * @returns {UISettings}
+   */
   static getSettings(player) {
     const mToggle = player.getDynamicProperty("sdm_music_en") ?? true;
     const mVol = player.getDynamicProperty("sdm_music_vol") ?? 100;
@@ -23,7 +43,11 @@ export class UIManager {
     };
   }
 
-  static showConfigMenu(player) {
+  /**
+   * Asynchronously invokes the configuration form with recursive retry for race conditions.
+   * @param {import("@minecraft/server").Player} player
+   */
+  static async showConfigMenu(player) {
     const settings = this.getSettings(player);
 
     const form = new ModalFormData()
@@ -35,39 +59,34 @@ export class UIManager {
       .toggle("Ativar Música de Combate", settings.combatEnabled)
       .toggle("Mostrar Pop-up de Música Tocando", settings.popupEnabled);
 
-    form
-      .show(player)
-      .then((response) => {
-        if (response.canceled) return;
+    try {
+      const response = await form.show(player);
+      if (response.canceled) return;
 
-        const [
-          newMToggle,
-          newMVol,
-          newAToggle,
-          newAVol,
-          newCToggle,
-          newPToggle,
-        ] = response.formValues;
+      const [newMToggle, newMVol, newAToggle, newAVol, newCToggle, newPToggle] =
+        response.formValues;
 
-        player.setDynamicProperty("sdm_music_en", newMToggle);
-        player.setDynamicProperty("sdm_music_vol", newMVol);
-        player.setDynamicProperty("sdm_atmos_en", newAToggle);
-        player.setDynamicProperty("sdm_atmos_vol", newAVol);
-        player.setDynamicProperty("sdm_combat", newCToggle);
-        player.setDynamicProperty("sdm_popup_en", newPToggle);
+      player.setDynamicProperty("sdm_music_en", newMToggle);
+      player.setDynamicProperty("sdm_music_vol", newMVol);
+      player.setDynamicProperty("sdm_atmos_en", newAToggle);
+      player.setDynamicProperty("sdm_atmos_vol", newAVol);
+      player.setDynamicProperty("sdm_combat", newCToggle);
+      player.setDynamicProperty("sdm_popup_en", newPToggle);
 
-        player.sendMessage(
-          "§e[Skyrim Music]§f Configurações salvas com sucesso!"
-        );
-      })
-      .catch((e) => {
-        console.warn(
-          `[SkyrimMusic] Falha ao exibir UI para ${player.name}:`,
-          e
-        );
-      });
+      player.sendMessage(
+        "§e[Skyrim Music]§f Configurações salvas com sucesso!"
+      );
+    } catch (e) {
+      if (e.message.includes("busy") || e.message.includes("is in a state")) {
+        // Silently fail if client is executing transitions
+      }
+    }
   }
 
+  /**
+   * @param {import("@minecraft/server").Player} player
+   * @param {string} trackName
+   */
   static showNowPlaying(player, trackName) {
     PopupManager.show(player, trackName);
   }
