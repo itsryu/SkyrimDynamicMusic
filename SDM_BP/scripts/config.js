@@ -1,9 +1,4 @@
 /**
- * @fileoverview Configuration constants and track dictionaries.
- */
-
-/**
- * Global configuration parameters.
  * @constant
  * @type {Readonly<Object>}
  */
@@ -22,7 +17,6 @@ export const CONFIG = Object.freeze({
 });
 
 /**
- * Entity classifications for runtime evaluation.
  * @constant
  * @type {Readonly<Object>}
  */
@@ -64,9 +58,6 @@ export const ENTITY_DICTIONARY = Object.freeze({
   ]),
 });
 
-/**
- * Represents an audio track entity.
- */
 export class Track {
   /**
    * @param {string} name - Base name of the track.
@@ -86,7 +77,6 @@ export class Track {
 }
 
 /**
- * Defined playlists categorized by environmental state.
  * @constant
  * @type {Readonly<Object<string, Track[]>>}
  */

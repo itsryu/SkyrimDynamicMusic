@@ -1,15 +1,18 @@
-/**
- * @fileoverview Audio orchestration and logic transitions.
- */
 import { system } from "@minecraft/server";
 import { CONFIG, PLAYLISTS } from "./config.js";
 import { stateManager } from "./state.js";
 import { EnvironmentSensor } from "./environment.js";
 import { UIManager } from "./ui.js";
 
+const isEntityValid = (entity) => {
+  if (!entity) return false;
+  return typeof entity.isValid === "function"
+    ? entity.isValid()
+    : !!entity.isValid;
+};
+
 export class AudioOrchestrator {
   /**
-   * Cryptographically insecure pseudo-random generator integer scaling.
    * @private
    */
   static _getRandomInt(min, max) {
@@ -29,7 +32,6 @@ export class AudioOrchestrator {
   }
 
   /**
-   * Handles inter-track atmospheric pauses.
    * @private
    */
   static _playAtmosphereGap(player, context, settings) {
@@ -47,13 +49,10 @@ export class AudioOrchestrator {
         CONFIG.EXPLORATION_GAP_MAX_TICKS
       );
       context.transitionTick = system.currentTick + gapDuration;
-    } catch (error) {
-      // Runtime engine constraint safeguard
-    }
+    } catch (error) {}
   }
 
   /**
-   * Invokes track payload based on active behavioral modes.
    * @private
    */
   static _playContextTrack(player, context, mode, settings) {
@@ -75,7 +74,7 @@ export class AudioOrchestrator {
 
         if (settings.popupEnabled) {
           system.runTimeout(() => {
-            if (player.isValid())
+            if (isEntityValid(player))
               UIManager.showNowPlaying(player, track.displayName);
           }, 5);
         }
@@ -87,17 +86,14 @@ export class AudioOrchestrator {
       context.transitionTick = isCombatLoop
         ? Infinity
         : system.currentTick + track.durationTicks;
-    } catch (error) {
-      // Handled engine exception
-    }
+    } catch (error) {}
   }
 
   /**
-   * Core execution tick evaluated per player.
    * @param {import("@minecraft/server").Player} player
    */
   static tickPlayer(player) {
-    if (!player.isValid()) return;
+    if (!isEntityValid(player)) return;
 
     const context = stateManager.getContext(player);
     const settings = UIManager.getSettings(player);

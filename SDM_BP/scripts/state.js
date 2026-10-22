@@ -1,11 +1,5 @@
-/**
- * @fileoverview State management architecture for players and global variables.
- */
 import { world } from "@minecraft/server";
 
-/**
- * Contextual memory allocated per active player.
- */
 export class PlayerContext {
   /**
    * @param {import("@minecraft/server").Player} player
@@ -20,9 +14,6 @@ export class PlayerContext {
   }
 }
 
-/**
- * Singleton state controller implementing memoization for environments.
- */
 export class StateManager {
   constructor() {
     /** @type {Map<string, PlayerContext>} */
@@ -47,7 +38,6 @@ export class StateManager {
   }
 
   /**
-   * Retrieves or instantiates the context for a specific player.
    * @param {import("@minecraft/server").Player} player
    * @returns {PlayerContext}
    */
@@ -61,7 +51,6 @@ export class StateManager {
   }
 
   /**
-   * Memory garbage collection. Removes disconnected players.
    * @param {Set<string>} onlinePlayerIds
    */
   cleanup(onlinePlayerIds) {

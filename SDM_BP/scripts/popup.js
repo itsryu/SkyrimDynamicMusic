@@ -1,16 +1,17 @@
-/**
- * @fileoverview 3D entity billboard manager.
- */
 import { system, world } from "@minecraft/server";
+
+const isEntityValid = (entity) => {
+  if (!entity) return false;
+  return typeof entity.isValid === "function"
+    ? entity.isValid()
+    : !!entity.isValid;
+};
 
 export class PopupManager {
   static popups = new Map();
   static POPUP_DURATION_TICKS = 100;
   static DISTANCE_FROM_CAMERA = 2.0;
 
-  /**
-   * Sweeps dimensions enforcing memory de-allocation for orphaned entities.
-   */
   static cleanupOrphans() {
     const dimensions = ["overworld", "nether", "the_end"];
     for (const dimId of dimensions) {
@@ -21,7 +22,7 @@ export class PopupManager {
           orphan.remove();
         }
       } catch (e) {
-        // Safe fail if dimension is unloaded
+        // safe fail
       }
     }
   }
@@ -49,7 +50,7 @@ export class PopupManager {
 
       this.updatePosition(player, entity);
     } catch (error) {
-      // Silent fail
+      // safe fail
     }
   }
 
@@ -59,7 +60,7 @@ export class PopupManager {
   static remove(playerId) {
     const data = this.popups.get(playerId);
     if (data) {
-      if (data.entity?.isValid()) {
+      if (isEntityValid(data.entity)) {
         try {
           data.entity.remove();
         } catch (e) {}
@@ -69,12 +70,11 @@ export class PopupManager {
   }
 
   /**
-   * Synchronizes spatial coordinates via trigonometric vectors.
    * @param {import("@minecraft/server").Player} player
    * @param {import("@minecraft/server").Entity} entity
    */
   static updatePosition(player, entity) {
-    if (!player.isValid() || !entity.isValid()) return;
+    if (!isEntityValid(player) || !isEntityValid(entity)) return;
 
     const headLoc = player.getHeadLocation();
     const viewDir = player.getViewDirection();

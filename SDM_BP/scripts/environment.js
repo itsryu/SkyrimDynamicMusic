@@ -1,13 +1,9 @@
-/**
- * @fileoverview Environmental heuristics with TTl caching.
- */
 import { system, world } from "@minecraft/server";
 import { CONFIG, ENTITY_DICTIONARY } from "./config.js";
 import { stateManager } from "./state.js";
 
 export class EnvironmentSensor {
   /**
-   * Identifies the contextual game mode, prioritizing performance via memoization.
    * @param {import("@minecraft/server").Player} player
    * @param {import("./state.js").PlayerContext} context
    * @param {Object} settings
@@ -69,9 +65,7 @@ export class EnvironmentSensor {
       for (const e of entities) {
         if (ENTITY_DICTIONARY.BOSSES.has(e.typeId)) return true;
       }
-    } catch (e) {
-      // Dimension bounds failure safeguard
-    }
+    } catch (e) {}
     return false;
   }
 
@@ -102,9 +96,7 @@ export class EnvironmentSensor {
           return true;
         }
       }
-    } catch (e) {
-      // Chunk not loaded safeguard
-    }
+    } catch (e) {}
     return player.location.y > 100;
   }
 }

@@ -1,49 +1,81 @@
-/**
- * @fileoverview Main entry point. Defines runtime logic loops and event subscriptions.
- */
-import { world, system, ItemStack } from "@minecraft/server";
+import {
+  world,
+  system,
+  ItemStack,
+  Player,
+  CommandPermissionLevel,
+  CustomCommandStatus,
+} from "@minecraft/server";
 import { CONFIG, ENTITY_DICTIONARY, PLAYLISTS } from "./config.js";
 import { stateManager } from "./state.js";
 import { UIManager } from "./ui.js";
 import { AudioOrchestrator } from "./audio.js";
 import { PopupManager } from "./popup.js";
 
-// Initialize Environment State
+function isEntityValid(entity) {
+  if (!entity) return false;
+  return typeof entity.isValid === "function"
+    ? entity.isValid()
+    : !!entity.isValid;
+}
+
+system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
+  customCommandRegistry.registerCommand(
+    {
+      name: "sdm:np",
+      description: "Exibe o nome da música atualmente em reprodução.",
+      permissionLevel: CommandPermissionLevel.Any,
+      cheatsRequired: false,
+    },
+    (origin) => {
+      const source = origin.initiator ?? origin.sourceEntity;
+
+      if (!(source instanceof Player)) {
+        return {
+          status: CustomCommandStatus.Failure,
+          message: "Este comando só pode ser executado por um jogador.",
+        };
+      }
+
+      system.run(() => {
+        const playerContext = stateManager.getContext(source);
+        const trackId = playerContext.previousTrack;
+        const currentTick = system.currentTick;
+
+        const isPlaying =
+          playerContext.playbackState === "track" &&
+          (playerContext.transitionTick === Infinity ||
+            currentTick < playerContext.transitionTick);
+
+        if (!trackId || !isPlaying) {
+          source.sendMessage(
+            "§e[Skyrim Music]§f Nenhuma música tocando no momento."
+          );
+          return;
+        }
+
+        let trackName = "Desconhecida";
+        for (const mode in PLAYLISTS) {
+          const track = PLAYLISTS[mode].find((t) => t.id === trackId);
+          if (track) {
+            trackName = track.displayName;
+            break;
+          }
+        }
+
+        source.sendMessage(
+          `§e[Skyrim Music]§f Tocando agora: §a♫ ${trackName}`
+        );
+      });
+
+      return { status: CustomCommandStatus.Success };
+    }
+  );
+});
+
 system.runTimeout(() => {
   PopupManager.cleanupOrphans();
 }, 20);
-
-// Use afterEvents as beforeEvents.chatSend is non-standard in modern APIs
-world.afterEvents.chatSend.subscribe((ev) => {
-  const msg = ev.message.toLowerCase().trim();
-
-  if (msg === "!np" || msg === "!musica" || msg === "!music") {
-    const player = ev.sender;
-
-    system.run(() => {
-      const context = stateManager.getContext(player);
-      const trackId = context.previousTrack;
-
-      if (!trackId) {
-        player.sendMessage(
-          "§e[Skyrim Music]§f Nenhuma música tocando no momento."
-        );
-        return;
-      }
-
-      let trackName = "Desconhecida";
-      for (const mode in PLAYLISTS) {
-        const track = PLAYLISTS[mode].find((t) => t.id === trackId);
-        if (track) {
-          trackName = track.displayName;
-          break;
-        }
-      }
-
-      player.sendMessage(`§e[Skyrim Music]§f Tocando agora: §a♫ ${trackName}`);
-    });
-  }
-});
 
 world.afterEvents.itemUse.subscribe((ev) => {
   if (ev.itemStack.typeId === "skyrim:config_book") {
@@ -76,7 +108,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
   const currentTick = system.currentTick;
 
   if (target?.typeId === "minecraft:player" && attacker) {
-    if (target.isValid()) {
+    if (isEntityValid(target)) {
       stateManager.getContext(target).combatUntilTick =
         currentTick + CONFIG.COMBAT_GRACE_TICKS;
     }
@@ -88,7 +120,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
       ENTITY_DICTIONARY.BOSSES.has(target.typeId) ||
       target.typeId === "minecraft:player";
 
-    if (attacker.isValid() && isHostile) {
+    if (isEntityValid(attacker) && isHostile) {
       stateManager.getContext(attacker).combatUntilTick =
         currentTick + CONFIG.COMBAT_GRACE_TICKS;
     }
@@ -99,14 +131,17 @@ world.afterEvents.playerLeave.subscribe((ev) => {
   PopupManager.remove(ev.playerId);
 });
 
-// UI Sync implementation
 system.runInterval(() => {
   const currentTick = system.currentTick;
   const players = world.getPlayers();
 
   for (const [playerId, data] of PopupManager.popups.entries()) {
     const player = players.find((p) => p.id === playerId);
-    if (currentTick >= data.expireTick || !player || !data.entity.isValid()) {
+    if (
+      currentTick >= data.expireTick ||
+      !player ||
+      !isEntityValid(data.entity)
+    ) {
       PopupManager.remove(playerId);
       continue;
     }
@@ -114,18 +149,19 @@ system.runInterval(() => {
   }
 }, 1);
 
-// Cooperative Multitasking: Generator function limits execution complexity per tick
+/**
+ * @yields {void}
+ */
 function* processAudioQueue() {
   const players = Array.from(world.getPlayers());
   for (const player of players) {
     try {
       AudioOrchestrator.tickPlayer(player);
     } catch (e) {}
-    yield; // Relinquish thread execution to subsequent engine ticks
+    yield;
   }
 }
 
-// Spawns the Job at predefined intervals
 system.runInterval(() => {
   const players = Array.from(world.getPlayers());
   stateManager.cleanup(new Set(players.map((p) => p.id)));

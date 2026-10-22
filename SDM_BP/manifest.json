@@ -2,10 +2,10 @@
   "format_version": 2,
   "header": {
     "name": "Skyrim Dynamic Music - Behavior",
-    "description": "Context-aware dynamic soundtrack for Minecraft Bedrock. (With Config UI)",
+    "description": "Context-aware dynamic soundtrack for Minecraft Bedrock.",
     "uuid": "a9b7c2d1-4e63-4f80-9a25-7b6d8c1e3f40",
     "version": [1, 8, 0],
-    "min_engine_version": [1, 21, 40]
+    "min_engine_version": [1, 26, 50]
   },
   "modules": [
     {
@@ -24,11 +24,11 @@
     },
     {
       "module_name": "@minecraft/server",
-      "version": "1.16.0"
+      "version": "2.10.0"
     },
     {
       "module_name": "@minecraft/server-ui",
-      "version": "1.3.0"
+      "version": "2.2.0"
     }
   ],
   "metadata": {
