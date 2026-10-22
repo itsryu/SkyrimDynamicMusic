@@ -78,7 +78,7 @@
 
   <h3>🛠️ Como Instalar</h3>
   <ol>
-    <li>Baixe o arquivo unificado <code>.mcaddon</code> do pacote.</li>
+    <li>Baixe o arquivo <code>.mcaddon</code> do pacote.</li>
     <li>Abra o arquivo para que o seu dispositivo o importe automaticamente no <strong>Minecraft</strong>.</li>
     <li>Acesse as configurações de <strong>Recursos Globais (ou Pacotes de Recursos do Mundo)</strong>.</li>
     <li>Ative o pacote do Skyrim e aproveite o jogo.</li>

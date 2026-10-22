@@ -1,0 +1,9 @@
+{
+  "resource_pack_name": "skyrim_music",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "skyrim_config_icon": {
+      "textures": "textures/items/book_enchanted"
+    }
+  }
+}

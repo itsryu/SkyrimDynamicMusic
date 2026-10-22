@@ -3,6 +3,7 @@
 .DS_Store
 .content/
 
+
 # mine
 *.log
 .content/
@@ -16,3 +17,9 @@ Thumbs.db
 
 # audios
 *.ogg
+
+#others
+*.xml
+
+# build
+*.mcaddon

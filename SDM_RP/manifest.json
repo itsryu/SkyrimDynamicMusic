@@ -1,0 +1,35 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Skyrim Dynamic Music - Resources",
+    "description": "Texturas, sons e interface. Clique na ⚙️ engrenagem para mudar o estilo do Pop-up.",
+    "uuid": "c7d5e4f3-6085-4192-bc47-9d8e0a3f5162",
+    "version": [1, 8, 0],
+    "min_engine_version": [1, 21, 40]
+  },
+  "modules": [
+    {
+      "description": "Arquivos de Áudio e Texturas",
+      "type": "resources",
+      "uuid": "d6e5f4a3-7196-42a3-8d58-ae9f1b406273",
+      "version": [1, 8, 0]
+    }
+  ],
+  "subpacks": [
+    {
+      "folder_name": "popup_default",
+      "name": "Pop-up: Painel Escuro (Padrão)",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "popup_minimal",
+      "name": "Pop-up: Minimalista (Sem Fundo)",
+      "memory_tier": 1
+    }
+  ],
+  "metadata": {
+    "authors": ["Skyrim Dynamic Music"],
+    "license": "MIT",
+    "product_type": "addon"
+  }
+}

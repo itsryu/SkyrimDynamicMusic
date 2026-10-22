@@ -1,5 +1,74 @@
-
 {
+  "menu": {
+    "event_name": "skyrim:track.dragonborn",
+    "min_delay": 0,
+    "max_delay": 0
+  },
+  "game": {
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
+  },
+  "creative": {
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
+  },
+  "survival": {
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
+  },
+  "nether": {
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
+  },
+  "end": {
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
+  },
+  "water": {
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
+  },
+  "pale_garden": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "cherry_grove": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "depo_forest": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "frozen_caves": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "sulfur_caves": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "deep_dark": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
+  "mangrove_swamp": {
+    "event_name": "skyrim:music.exploration",
+    "min_delay": 60,
+    "max_delay": 180
+  },
   "badlands": {
     "event_name": "skyrim:music.exploration",
     "min_delay": 60,
@@ -21,11 +90,6 @@
     "max_delay": 180
   },
   "birch_forest": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
-  },
-  "cherry_grove": {
     "event_name": "skyrim:music.exploration",
     "min_delay": 60,
     "max_delay": 180

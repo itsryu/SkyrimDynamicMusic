@@ -1,5 +1,5 @@
 {
-  "format_version": "1.14.0",
+  "format_version": "1.21.0",
   "sound_definitions": {
     "skyrim:track.a_chance_meeting": {
       "category": "music",
@@ -7,7 +7,7 @@
     },
     "skyrim:track.a_winter_s_tale": {
       "category": "music",
-      "sounds": ["sounds/music/skyrim/a_winter's_tale"]
+      "sounds": ["sounds/music/skyrim/a_winters_tale"]
     },
     "skyrim:track.ancient_stones": {
       "category": "music",
@@ -87,11 +87,11 @@
     },
     "skyrim:track.journey_s_end": {
       "category": "music",
-      "sounds": ["sounds/music/skyrim/journey's_end"]
+      "sounds": ["sounds/music/skyrim/journeys_end"]
     },
     "skyrim:track.kyne_s_peace": {
       "category": "music",
-      "sounds": ["sounds/music/skyrim/kyne's_peace"]
+      "sounds": ["sounds/music/skyrim/kynes_peace"]
     },
     "skyrim:track.masser": {
       "category": "music",
@@ -135,7 +135,7 @@
     },
     "skyrim:track.sky_above_voice_within": {
       "category": "music",
-      "sounds": ["sounds/music/skyrim/sky_above,_voice_within"]
+      "sounds": ["sounds/music/skyrim/sky_above_voice_within"]
     },
     "skyrim:track.skyrim_atmospheres": {
       "category": "music",

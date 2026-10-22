@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "skyrim:recipe_config_book"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "minecraft:book"
+      },
+      {
+        "item": "minecraft:noteblock"
+      }
+    ],
+    "result": {
+      "item": "skyrim:config_book",
+      "count": 1
+    }
+  }
+}
