@@ -2,11 +2,11 @@
 
 <p align="center">
   <a href="#english">
-    <img src="https://shields.io" alt="English" />
+    <img src="https://img.shields.io/badge/English-181717?style=for-the-badge&logo=readme&logoColor=white" alt="English" />
   </a>
   &nbsp;&nbsp;
   <a href="#portugues">
-    <img src="https://shields.io" alt="Português" />
+    <img src="https://img.shields.io/badge/Portugu%C3%AAs-181717?style=for-the-badge&logo=readme&logoColor=white" alt="Português" />
   </a>
 </p>
 
@@ -37,7 +37,7 @@
 
   <h3>🛠️ How to Install</h3>
   <ol>
-    <li>Download the unified <code>.mcaddon</code> pack file.</li>
+    <li>Download the <code>.mcaddon</code> pack file.</li>
     <li>Open the file to let your device automatically import it into <strong>Minecraft</strong>.</li>
     <li>Go to your <strong>Global Resources (or World Resource Packs)</strong> settings.</li>
     <li>Activate the Skyrim pack and enjoy.</li>
