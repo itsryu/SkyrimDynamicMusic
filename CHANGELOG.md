@@ -1,29 +1,36 @@
-<h1>📜 Changelog - Skyrim Dynamic Music</h1>
+# Changelog
 
-<p class="subtitle">Todas as mudanças notáveis do <strong>Skyrim Dynamic Music</strong> estão documentadas aqui.</p>
+Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e [SemVer](https://semver.org/lang/pt-BR/).
 
-<div id="versao-1-8-0">
-        <h2>🚀 [1.8.0] - A Grande Atualização Visual & Estabilidade</h2>
-        <h3>✨ Adicionado</h3>
-        <ul>
-            <li><strong>Pop-up Visual de Música em 3D:</strong> Implementação completa de notificação visual imersiva e nativa usando renderização de Entidade. Não sequestra a Action Bar do jogo.</li>
-            <li><strong>Configurações por Subpacks (Slider):</strong> Agora é possível escolher entre o design Padrão (Painel Escuro) ou Minimalista (Texto Flutuante Transparente) através da engrenagem do Resource Pack, semelhante ao Actions & Stuff.</li>
-            <li><strong>Comandos de Chat Interativos:</strong> Adicionado suporte nativo aos comandos <code>!musica</code>, <code>!music</code> e <code>!np</code>. Digite-os no chat para o addon informar privadamente qual faixa está tocando.</li>
-            <li><strong>Limpeza de Órfãos (Garbage Collection):</strong> Sistema robusto que varre e limpa placas/pop-ups soltos ao reiniciar o mundo (<code>/reload</code>) ou quando o jogador sai, evitando "fantasmas" visuais.</li>
-        </ul>
-        <h3>🔄 Modificado</h3>
-        <ul>
-            <li><strong>Fluidez Musical (Menu de Config):</strong> Salvar as opções no <em>Livro de Configuração</em> não reseta mais a música bruscamente. Agora suas alterações são aplicadas graciosamente na próxima transição, permitindo que a orquestra flua sem interrupções.</li>
-            <li><strong>Receita de Crafting:</strong> O Livro de Configurações agora requer <strong>1 Livro + 1 Bloco Musical</strong> (Note Block), fazendo muito mais sentido temático com o mod.</li>
-            <li><strong>Refatoração para API 1.21.40:</strong> Remoção completa de sintaxes depreciadas e componentes incompatíveis. O código agora apresenta zero logs e avisos nativos.</li>
-        </ul>
-        <h3>🐛 Corrigido</h3>
-        <ul>
-            <li>Bugs de persistência de iteradores de memória na contagem de jogadores online (prevenção do erro de mapeamento usando Array.from).</li>
-            <li>Resolução do problema de <em>billboarding</em> do texto da nameTag que ficava descentralizado da geometria personalizada.</li>
-        </ul>
-</div>
+## [2.0.0]
 
-<hr />
+### Adicionado
 
-<p class="footer">Skyrim vibes. Minecraft forever.</p>
+- Modelo de reprodução inspirado em Skyrim: modos que interrompem × modos ambientes, silêncio de liberação, histerese de saída e encadeamento de faixas em combate/chefe.
+- _Shuffle bag_ (Fisher–Yates) por modo, sem repetir faixas antes de esgotar a playlist.
+- Comandos `/sdm:skip` e `/sdm:config`; configuração de **frequência das músicas**.
+- Localização `pt_BR` e `en_US` (mensagens, menu e nome do item) via `texts/*.lang`.
+- Detecção de bioma subterrâneo (`deep_dark`, `lush_caves`, `dripstone_caves`) e de terreno nevado mais precisa.
+- Testes automatizados (`node:test`), CI, `npm run build` multiplataforma e verificação de tipos por JSDoc.
+
+### Alterado
+
+- Código reorganizado em camadas: `core` (lógica pura), `platform` (API do Minecraft) e `ui`.
+- Configurações unificadas em uma propriedade dinâmica (`sdm_settings`) com migração das chaves antigas.
+- `Entity.isValid` como propriedade, `Dimension.getWeather()` no lugar de estado global por evento, `world.getAllPlayers()`.
+- Menu reabre automaticamente enquanto o jogador estiver com chat/inventário aberto.
+- Pop-up: laço por tick só existe enquanto há pop-ups; reposicionamento ignora quadros sem mudança; entidade passa a se autodestruir (`minecraft:timer`) e é invulnerável.
+- Livro de Configuração devolvido ao chão se o inventário estiver cheio.
+- Catálogo de faixas com fonte única de durações e nomes de exibição.
+
+### Corrigido
+
+- `music_definitions.json`: chave `water` duplicada e eventos `skyrim:music.exploration`/`skyrim:music.water` inexistentes.
+- Música de caverna tocando ao nadar em oceano profundo.
+- Faixa de combate em _loop_ continuava tocando após o combate com a atmosfera desativada.
+- Limpeza de pop-ups órfãos também em _chunks_ carregados depois da inicialização.
+- Detecção de aldeões (`villager_v2`).
+
+## [1.8.0]
+
+Pop-up 3D, subpacks de estilo, comandos de chat, coleta de órfãos e refatoração para a API 1.21.40.

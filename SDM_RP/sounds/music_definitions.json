@@ -35,178 +35,173 @@
     "max_delay": 99999
   },
   "pale_garden": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "cherry_grove": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "depo_forest": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "frozen_caves": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "sulfur_caves": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "deep_dark": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "mangrove_swamp": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "badlands": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "badlands_plateau": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "bamboo_jungle": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "beach": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "birch_forest": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "deep_ocean": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "desert": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "flower_forest": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "forest": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "frozen_ocean": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "grove": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "ice_plains": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "jungle": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "lukewarm_ocean": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "mega_taiga": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "mushroom_island": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "ocean": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "plains": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "river": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "roofed_forest": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "savanna": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "snowy_slopes": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "swampland": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "taiga": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "warm_ocean": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "windswept_forest": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   },
   "windswept_hills": {
-    "event_name": "skyrim:music.exploration",
-    "min_delay": 60,
-    "max_delay": 180
-  },
-  "water": {
-    "event_name": "skyrim:music.water",
-    "min_delay": 10,
-    "max_delay": 20
+    "event_name": "minecraft:music.game",
+    "min_delay": 99999,
+    "max_delay": 99999
   }
 }

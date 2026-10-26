@@ -1,25 +1,13 @@
-# temps
+node_modules/
+dist/
 *.log
-.DS_Store
-.content/
-
-
-# mine
-*.log
-.content/
-.mcattributes
-
-# editors
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-
-# audios
-*.ogg
-
-#others
-*.xml
-
-# build
+.content/
+.mcattributes
 *.mcaddon
+*.mcpack
+*.ogg
+*.xml

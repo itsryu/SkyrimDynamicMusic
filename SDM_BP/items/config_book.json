@@ -3,19 +3,10 @@
   "minecraft:item": {
     "description": {
       "identifier": "skyrim:config_book",
-      "menu_category": {
-        "category": "equipment"
-      }
+      "menu_category": { "category": "equipment" }
     },
     "components": {
-      "minecraft:icon": {
-        "textures": {
-          "default": "skyrim_config_icon"
-        }
-      },
-      "minecraft:display_name": {
-        "value": "§6Livro de Configuração: Skyrim Music"
-      },
+      "minecraft:icon": { "textures": { "default": "skyrim_config_icon" } },
       "minecraft:max_stack_size": 1,
       "minecraft:glint": true
     }
