@@ -42,10 +42,10 @@ O laço usa `system.runJob` (um jogador por fatia de tick) com trava contra sobr
 
 Fases: `idle → track ⇄ gap`. Cada modo tem um perfil (`modes.js`):
 
-| Propriedade  | Significado                                          |
-| ------------ | ---------------------------------------------------- |
-| `interrupts` | entrar no modo corta a faixa atual (crossfade)       |
-| `chained`    | enquanto o modo persiste, próxima faixa sem silêncio |
+| Propriedade  | Significado                                                    |
+| ------------ | -------------------------------------------------------------- |
+| `interrupts` | entrar no modo corta a faixa atual (crossfade)                 |
+| `chained`    | enquanto o modo persiste, próxima faixa sem silêncio            |
 
 Regras: ambiente→ambiente espera o fim natural; sair de modo de interrupção para ambiente exige `exitDebounceTicks` e abre um silêncio de liberação; o silêncio é escalado pela preferência de frequência do jogador.
 
@@ -53,6 +53,7 @@ Regras: ambiente→ambiente espera o fim natural; sair de modo de interrupção 
 
 - A duração das faixas é declarada em `core/catalog.js`: o Script API estável não expõe um evento de fim de música (`SoundInstance` e `SoundCompletedAfterEvent` estão em _beta_). Se o API estabilizar, `step` pode receber o fim real em vez de `untilTick`.
 - O volume de uma faixa em execução não pode ser alterado na API estável; mudanças de volume valem a partir da próxima faixa. Desligar a música, por outro lado, tem efeito imediato.
+- O clima só é conhecido após a primeira mudança observada (a API estável não permite lê-lo diretamente); até lá assume-se tempo limpo.
 - O pop-up é uma entidade no mundo: outros jogadores muito próximos podem vê-lo.
 - `dragonsreach` e `the_bannered_mare` existem em `sound_definitions.json`, mas não estão em nenhuma playlist (falta a duração exata de cada um).
 

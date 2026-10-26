@@ -17,7 +17,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e
 
 - Código reorganizado em camadas: `core` (lógica pura), `platform` (API do Minecraft) e `ui`.
 - Configurações unificadas em uma propriedade dinâmica (`sdm_settings`) com migração das chaves antigas.
-- `Entity.isValid` como propriedade, `Dimension.getWeather()` no lugar de estado global por evento, `world.getAllPlayers()`.
+- `Entity.isValid` como propriedade, `world.getAllPlayers()` e clima rastreado por dimensão via `weatherChange` (`WeatherTracker`).
 - Menu reabre automaticamente enquanto o jogador estiver com chat/inventário aberto.
 - Pop-up: laço por tick só existe enquanto há pop-ups; reposicionamento ignora quadros sem mudança; entidade passa a se autodestruir (`minecraft:timer`) e é invulnerável.
 - Livro de Configuração devolvido ao chão se o inventário estiver cheio.

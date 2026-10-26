@@ -8,6 +8,7 @@ import { createLogger } from "./platform/logger.js";
 import { MusicOrchestrator } from "./platform/music-orchestrator.js";
 import { PopupService } from "./platform/popup-service.js";
 import { SettingsStore } from "./platform/settings-store.js";
+import { WeatherTracker } from "./platform/weather-tracker.js";
 import { registerCommands } from "./ui/commands.js";
 import { ConfigMenu } from "./ui/config-menu.js";
 import { Text } from "./ui/messages.js";
@@ -15,11 +16,12 @@ import { Text } from "./ui/messages.js";
 const log = createLogger("main");
 const sessions = new SessionRegistry();
 const settings = new SettingsStore();
+const weather = new WeatherTracker();
 const popups = new PopupService(createLogger("popup"));
 const orchestrator = new MusicOrchestrator({
   sessions,
   settings,
-  sensor: new EnvironmentSensor(createLogger("sensor")),
+  sensor: new EnvironmentSensor(createLogger("sensor"), weather),
   audio: new AudioDriver(createLogger("audio")),
   popups,
   scheduler: system,
@@ -82,6 +84,7 @@ world.afterEvents.playerLeave.subscribe(({ playerId }) => {
 });
 
 new CombatTracker(sessions).register();
+weather.register();
 
 system.runInterval(() => {
   if (polling) return;

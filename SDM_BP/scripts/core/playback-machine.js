@@ -24,16 +24,18 @@ export const Phase = Object.freeze({
  */
 
 /**
+ * @template {Pickable} [T=Pickable]
  * @typedef {Object} StepContext
- * @property {(mode: import("./modes.js").ModeId) => Pickable | null} pickTrack
+ * @property {(mode: import("./modes.js").ModeId) => T | null} pickTrack
  * @property {import("./random.js").Rng} rng
  * @property {number} gapScale
  * @property {Readonly<import("./constants.js").Tuning>} [tuning]
  */
 
 /**
+ * @template {Pickable} [T=Pickable]
  * @typedef {{ kind: "none" }
- *   | { kind: "play", mode: import("./modes.js").ModeId, track: Pickable }
+ *   | { kind: "play", mode: import("./modes.js").ModeId, track: T }
  *   | { kind: "gap", ticks: number }} PlaybackAction
  */
 
@@ -46,7 +48,7 @@ export const createPlaybackState = () => ({
   exitSince: null,
 });
 
-/** @type {PlaybackAction} */
+/** @type {PlaybackAction<any>} */
 const NONE = Object.freeze({ kind: "none" });
 
 /**
@@ -55,11 +57,12 @@ const NONE = Object.freeze({ kind: "none" });
  * ao sair de um modo de interrupção há um silêncio de liberação (com histerese);
  * faixas encadeadas (combate/chefe) seguem sem pausa enquanto o modo persistir.
  *
+ * @template {Pickable} T
  * @param {PlaybackState} state
  * @param {import("./modes.js").ModeId} desired
  * @param {number} now
- * @param {StepContext} ctx
- * @returns {{ state: PlaybackState, action: PlaybackAction }}
+ * @param {StepContext<T>} ctx
+ * @returns {{ state: PlaybackState, action: PlaybackAction<T> }}
  */
 export function step(state, desired, now, ctx) {
   const tuning = ctx.tuning ?? TUNING;
@@ -96,10 +99,11 @@ export function step(state, desired, now, ctx) {
 }
 
 /**
+ * @template {Pickable} T
  * @param {import("./modes.js").ModeId} mode
  * @param {number} now
- * @param {StepContext} ctx
- * @returns {{ state: PlaybackState, action: PlaybackAction }}
+ * @param {StepContext<T>} ctx
+ * @returns {{ state: PlaybackState, action: PlaybackAction<T> }}
  */
 function startTrack(mode, now, ctx) {
   const track = ctx.pickTrack(mode);
@@ -119,12 +123,13 @@ function startTrack(mode, now, ctx) {
 }
 
 /**
+ * @template {Pickable} T
  * @param {PlaybackState} state
  * @param {import("./modes.js").ModeId} mode
  * @param {number} now
  * @param {import("./constants.js").TickRange} range
- * @param {StepContext} ctx
- * @returns {{ state: PlaybackState, action: PlaybackAction }}
+ * @param {StepContext<T>} ctx
+ * @returns {{ state: PlaybackState, action: PlaybackAction<T> }}
  */
 function enterGap(state, mode, now, range, ctx) {
   const base = randomInt(ctx.rng, range.min, range.max);

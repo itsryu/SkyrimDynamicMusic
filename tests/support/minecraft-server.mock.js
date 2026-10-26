@@ -20,10 +20,7 @@ export class ItemStack {
     this.amount = amount;
   }
 }
-export const EntityComponentTypes = {
-  Inventory: "minecraft:inventory",
-  TypeFamily: "minecraft:type_family",
-};
+export const EntityComponentTypes = { Inventory: "minecraft:inventory", TypeFamily: "minecraft:type_family" };
 export const CommandPermissionLevel = { Any: 0 };
 export const CustomCommandStatus = { Success: 0, Failure: 1 };
 
@@ -60,6 +57,7 @@ export const world = {
     itemUse: new Signal(),
     playerSpawn: new Signal(),
     playerLeave: new Signal(),
+    weatherChange: new Signal(),
   },
   getAllPlayers: () => mockState.players,
   getTimeOfDay: () => mockState.timeOfDay,

@@ -10,10 +10,12 @@ const VILLAGER_FILTERS = Object.freeze([
 export class EnvironmentSensor {
   /**
    * @param {import("./logger.js").Logger} log
+   * @param {Pick<import("./weather-tracker.js").WeatherTracker, "get">} weather
    * @param {Readonly<import("../core/constants.js").Tuning>} [tuning]
    */
-  constructor(log, tuning = TUNING) {
+  constructor(log, weather, tuning = TUNING) {
     this._log = log;
+    this._weather = weather;
     this._tuning = tuning;
   }
 
@@ -33,7 +35,7 @@ export class EnvironmentSensor {
       bossNearby: proximity.bossNearby,
       villageNearby: proximity.villageNearby,
       biomeId: proximity.biomeId,
-      weather: this._weather(dimension),
+      weather: this._weather.get(dimension.id),
       timeOfDay: world.getTimeOfDay(),
     };
   }
@@ -86,16 +88,6 @@ export class EnvironmentSensor {
     } catch (error) {
       this._log.warn("Leitura de bioma falhou", error);
       return undefined;
-    }
-  }
-
-  /** @param {import("@minecraft/server").Dimension} dimension */
-  _weather(dimension) {
-    try {
-      return String(dimension.getWeather());
-    } catch (error) {
-      this._log.warn("Leitura de clima falhou", error);
-      return "Clear";
     }
   }
 }

@@ -35,20 +35,20 @@ test("modo ambiente não interrompe a faixa; vale na próxima escolha", () => {
 });
 
 test("modo de interrupção corta a faixa imediatamente", () => {
-  let { state } = run(createPlaybackState(), Mode.EXPLORATION, 0);
+  const { state } = run(createPlaybackState(), Mode.EXPLORATION, 0);
   const r = run(state, Mode.COMBAT, 10);
   assert.equal(r.action.kind, "play");
   assert.equal(r.action.mode, Mode.COMBAT);
 });
 
 test("combate encadeia faixas sem silêncio enquanto persistir", () => {
-  let { state } = run(createPlaybackState(), Mode.COMBAT, 0);
+  const { state } = run(createPlaybackState(), Mode.COMBAT, 0);
   const r = run(state, Mode.COMBAT, 1000);
   assert.equal(r.action.kind, "play");
 });
 
 test("sair de modo de interrupção exige histerese e então abre silêncio de liberação", () => {
-  let { state } = run(createPlaybackState(), Mode.COMBAT, 0);
+  const { state } = run(createPlaybackState(), Mode.COMBAT, 0);
   let r = run(state, Mode.EXPLORATION, 100);
   assert.equal(r.action.kind, "none");
   assert.equal(r.state.exitSince, 100);

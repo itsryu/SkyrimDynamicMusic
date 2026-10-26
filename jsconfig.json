@@ -8,7 +8,9 @@
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "maxNodeModuleJsDepth": 0,
+    "types": []
   },
-  "include": ["SDM_BP/scripts/**/*.js", "tests/**/*.js", "tools/**/*.mjs"]
+  "include": ["SDM_BP/scripts/**/*.js"],
+  "exclude": ["node_modules", "dist", "tests", "tools"]
 }
